@@ -1,0 +1,292 @@
+/**
+ *  Simple CSS ribbon toolbar sketch
+ */
+
+*, *:after, *:before {
+	box-sizing: border-box;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font: 400 0.85rem sans-serif;
+	background: #dedede;
+}
+
+header {
+	background: #396fc4;
+	margin-bottom: 1rem;
+}
+
+
+/**
+ *  Menu ribbon basics
+ */
+
+.ribbon {
+	position: relative;
+	padding: 0 1rem;
+	line-height: 1.5rem;
+	display: block;
+	width: 100%;
+}
+
+.ribbon .toggle {
+	display: none;
+}
+
+.ribbon .content {
+	display: none;
+	position: absolute;
+	background: #f3f3f3;
+}
+
+.ribbon .segment {
+	padding: 0.4rem 0.4rem 0 0.4rem;
+	margin: 0.4rem 0;
+	display: grid;
+}
+
+.ribbon .segment footer {
+	margin: 1rem 0 0 0;
+	text-align: center;
+	display: block;
+	width: 100%;
+	align-self: flex-end;
+	line-height: 1;
+	color: #232323;
+	font-size: 90%;
+}
+
+.ribbon .segment footer a {
+	float: right;
+	align-self: flex-end;
+	color: #444;
+	font-size: 90%;
+	text-decoration: none;
+	margin-left: 0.5rem;
+}
+
+.ribbon .segment footer a::after {
+	content: '\21F1';
+}
+
+.ribbon .segment + .segment {
+	border-left: 1px solid #ddd;
+}
+
+.ribbon ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.ribbon ul li {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+}
+
+.ribbon .tab, .ribbon summary {
+	cursor: pointer;
+	display: block;
+	padding: 0.3rem 1rem;
+	color: #fff;
+	background: #396fc4;
+}
+
+.ribbon summary {
+	padding: 0.3rem;
+}
+
+.ribbon summary::before {
+	content: '\25BE';
+	padding-right: 0.5rem;
+}
+
+
+.ribbon[open] {
+	margin-bottom: 8rem;
+}
+
+.ribbon[open] summary::before {
+	content: '\25B4';
+}
+
+.ribbon .tab:hover {
+	background: #2b569a;
+}
+
+.ribbon .toggle:checked ~ label {
+	background: #f3f3f3;
+	color: #2b569a;
+}
+
+.ribbon .toggle:checked ~ .content {
+	display: flex;
+	flex-flow: column wrap;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: stretch;
+	left: 0;
+	width: 100%;
+}
+
+
+
+/**
+ *  Main toolbar
+ */
+
+.ribbon .toolbar {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	display: flex;
+}
+
+.ribbon .toolbar li {
+	vertical-align: top;
+}
+
+.ribbon .toolbar.center {
+	flex-flow: column wrap;
+	justify-content: center;
+}
+
+.ribbon .toolbar .full {
+	flex-start: start;
+	margin: 0 auto;
+}
+
+.ribbon .toolbar a {
+	font-variant-emoji: text;
+	text-decoration: none;
+	display: block;
+	color: #777;
+	padding: 0.2rem;
+	width: 1.8rem;
+	height: 1.8rem;
+	font-weight: 600;
+	text-align: center;
+	line-height: 1.5;
+	vertical-align: bottom;
+	border: 1px solid transparent;
+}
+
+.ribbon .toolbar a:hover {
+	border: 1px solid #90caf9;
+}
+
+/* Uncomment this section to render symbols as non emoji */
+/*
+.ribbon .toolbar a::before {
+	font-family: "Apple Color Emoji", "Segoe UI Emoji", monospace;
+}
+
+.ribbon .toolbar a::after {
+	content: '\FE0E';
+}
+*/
+
+.toolbar a[rel="italic"] {
+	font-style: italic;
+	font-family: serif;
+}
+
+.toolbar a[rel="underline"] {
+	text-decoration: underline;
+}
+
+.toolbar a[rel="strikethrough"] {
+	text-decoration: line-through;
+}
+
+.toolbar a[rel="superscript"],
+.toolbar a[rel="subscript"],
+.toolbar a[rel="fontdown"] {
+	font-size: 80%;
+}
+
+.toolbar a[rel="superscript"],
+.toolbar a[rel="subscript"]  {
+	font-weight: 800;
+}
+
+.toolbar a sup, .toolbar a sub {
+	color: #2b569a;
+	font-size: 80%;
+	font-weight: 600;
+	line-height: 1;
+}
+
+.toolbar a[rel="eraseformat"]::after {
+	content: '\21A9'
+}
+
+.toolbar a[rel="undo"],
+.toolbar a[rel="redo"],
+.toolbar a[rel="indent"],
+.toolbar a[rel="outdent"] {
+	font-size: 130%;
+}
+
+.toolbar a[rel="paste"] {
+	font-size: 220%;
+	padding: 0.1rem 0.3rem 0.2rem 0.2rem;
+	width: 2.7rem;
+	height: 3rem;
+}
+
+
+
+/**
+ *  Content input area below ribbon
+ */
+
+main input, main textarea {
+	font: inherit;
+	color: inherit;
+	background: inherit;
+	line-height: inherit;
+}
+
+main {
+	font: inherit;
+	height: 100%;
+	display: block;
+	clear: both;
+	width: 100%;
+	max-width: 800px;
+	margin: 1rem auto;
+	padding: 1rem;
+	background: #fff;
+	box-shadow: 0.2rem 0.2rem 0.5rem #ddd;
+	border: 1px solid #ddd;
+}
+
+.title {
+	display: block;
+	height: 3rem;
+	width: 100%;
+	clear: both;
+	border: 0;
+	outline: none;
+	resize: none;
+	border-bottom: solid 0.3rem #eee;
+}
+
+.body {
+	width: 100%;
+	margin-top: 0.6rem;
+	height: calc(100vh - 10rem);
+	outline: none;
+	display: block;
+	border: 0;
+	resize: none;
+	line-height: inherit;
+}
+
