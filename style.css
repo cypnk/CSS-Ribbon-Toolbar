@@ -64,7 +64,7 @@ p {
 }
 
 .ribbon .segment {
-	padding: 0.4rem 0.5rem 0 0.4rem;
+	padding: 0.4rem 0.5rem 0 1rem;
 	margin: 0.4rem 0;
 	display: grid;
 	width: max-content;
@@ -72,12 +72,17 @@ p {
 
 .ribbon .segment .tools {
 	padding-right: 0.3rem;
-	height: 5.5rem;
-	overflow: auto;
-	overflow-y: scroll;
+	height: 5rem;
+	overflow: hidden;
 	scrollbar-arrow-color: #396fc4;
 	scrollbar-gutter: stable;
-	scrollbar-color: #f3f3f3 #f3f3f3;
+	scrollbar-color: #396fc4 #f3f3f3;
+}
+
+.ribbon .segment .tools:focus,
+.ribbon .segment .tools:hover {
+	overflow: auto;
+	overflow-y: scroll;
 }
 
 .ribbon .segment .tools::-webkit-scrollbar {
@@ -333,6 +338,10 @@ main {
 	border: 1px solid #ddd;
 }
 
+.title, .body, main [contenteditable] {
+	padding: 0.3rem;
+}
+
 .title {
 	display: block;
 	height: 3rem;
@@ -355,12 +364,20 @@ main {
 	line-height: inherit;
 }
 
+::placeholder {
+	opacity: 1;
+	color: #777;
+}
+
 main [contenteditable] {
 	overflow: scroll;
 }
 
-main [contenteditable] root:empty::before {
-	content: 'Body'
+main [contenteditable]:empty::before,
+main [contenteditable] root:empty::before,
+main [contenteditable] html:empty::before {
+	content: 'Body';
+	color: #777;
 }
 
 [rel="toggle"],
