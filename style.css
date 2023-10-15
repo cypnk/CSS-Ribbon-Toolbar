@@ -16,11 +16,6 @@ body {
 	background: #dedede;
 }
 
-header {
-	background: #396fc4;
-	margin-bottom: 1rem;
-}
-
 p {
 	margin: 0;
 	padding: 0;
@@ -34,6 +29,12 @@ p {
 /**
  *  Menu ribbon basics
  */
+
+
+[rel="ribboncontainer"] {
+	background: #396fc4;
+	margin-bottom: 1rem;
+}
 
 .ribbon {
 	position: relative;
@@ -90,7 +91,7 @@ p {
 }
 
 
-.ribbon .segment heading {
+.ribbon .segment header {
 	margin: 1rem 0 0 0;
 	text-align: center;
 	display: block;
@@ -101,7 +102,7 @@ p {
 	font-size: 90%;
 }
 
-.ribbon .segment heading a {
+.ribbon .segment header a {
 	float: right;
 	align-self: flex-end;
 	color: #444;
@@ -110,7 +111,7 @@ p {
 	margin-left: 0.5rem;
 }
 
-.ribbon .segment heading a::after {
+.ribbon .segment header a::after {
 	content: '\21F1';
 }
 
@@ -356,6 +357,10 @@ main {
 
 main [contenteditable] {
 	overflow: scroll;
+}
+
+main [contenteditable] root:empty::before {
+	content: 'Body'
 }
 
 [rel="toggle"],
