@@ -21,6 +21,16 @@ header {
 	margin-bottom: 1rem;
 }
 
+p {
+	margin: 0;
+	padding: 0;
+}
+
+* + p {
+	margin-top: 1rem;
+}
+
+
 /**
  *  Menu ribbon basics
  */
@@ -228,7 +238,8 @@ header {
 	margin: 0 auto;
 }
 
-.ribbon .toolbar a {
+.ribbon .toolbar a, .ribbon .toolbar label[for] {
+	cursor: pointer;
 	font-variant-emoji: text;
 	text-decoration: none;
 	display: block;
@@ -256,11 +267,11 @@ header {
 
 /* Uncomment this section to render symbols as non emoji */
 /*
-.ribbon .toolbar a::before {
+.ribbon .toolbar a::before, .ribbon .toolbar label::before {
 	font-family: "Apple Color Emoji", "Segoe UI Emoji", monospace;
 }
 
-.ribbon .toolbar a::after {
+.ribbon .toolbar a::after, .ribbon .toolbar label::after {
 	content: '\FE0E';
 }
 */
@@ -286,13 +297,21 @@ header {
 	width: 1.6rem;
 }
 
+.toolbar input[rel="color"] {
+	padding: 0.2rem;
+	margin: 0.3rem 0;
+	width: 1.5rem;
+	height: 1.5rem;
+	cursor: pointer;
+}
+
 
 
 /**
  *  Content input area
  */
 
-main input, main textarea {
+main input, main textarea, main [contenteditable] {
 	font: inherit;
 	color: inherit;
 	background: inherit;
@@ -324,14 +343,27 @@ main {
 	border-bottom: solid 0.3rem #eee;
 }
 
-.body {
+.body, main [contenteditable] {
 	width: 100%;
 	margin-top: 0.6rem;
 	height: calc(100vh - 10rem);
 	outline: none;
-	display: block;
 	border: 0;
 	resize: none;
 	line-height: inherit;
 }
 
+main [contenteditable] {
+	overflow: scroll;
+}
+
+[rel="toggle"],
+[rel="toggle"] ~ textarea,
+[rel="toggle"]:checked ~ [contenteditable] {
+	display: none;
+}
+
+[rel="toggle"]:checked ~ textarea, 
+[rel="toggle"] ~ [contenteditable] {
+	display: block;
+}
