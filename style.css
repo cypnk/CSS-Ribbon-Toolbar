@@ -47,6 +47,10 @@ mark {
 	color: #ffff00
 }
 
+label[for] {
+	cursor: pointer;
+}
+
 
 /**
  *  Menu ribbon basics
@@ -129,16 +133,17 @@ mark {
 	font-size: 90%;
 }
 
-.ribbon .segment header a {
+.ribbon .segment header a, .ribbon .segment header label {
 	float: right;
 	align-self: flex-end;
 	color: #444;
 	font-size: 90%;
 	text-decoration: none;
 	margin-left: 0.5rem;
+	cursor: pointer;
 }
 
-.ribbon .segment header a::after {
+.ribbon .segment header a::after, .ribbon .segment header label::after {
 	content: '\21F1';
 }
 
@@ -217,7 +222,7 @@ mark {
 }
 
 .segment textarea {
-	height: 3rem;
+	height: 3.5rem;
 	display: block;
 	width: 100%;
 	margin-bottom: 0.2rem;
@@ -429,4 +434,78 @@ main [contenteditable] html:empty::before {
 [rel="toggle"]:checked ~ textarea, 
 [rel="toggle"] ~ [contenteditable] {
 	display: block;
+}
+
+
+/**
+ *  Dialog boxes
+ */
+
+dialog {
+	border: 1px solid #396fc4;
+	background: #f3f3f3;
+	padding: 0;
+	margin: 0;
+	width: calc(50vw);
+}
+
+dialog header, dialog section {
+	padding: 0.5rem;
+	margin: 0;
+}
+
+dialog header {
+	background: #396fc4;
+	color: #fff;
+}
+
+
+[rel="modals"] {
+	height: 0;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+[rel="toggle"]:checked ~ dialog {
+	display: block;
+	height: auto;
+	position:fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}
+
+dialog label[rel="close"] {
+	width: 1.9rem;
+	height: 2rem;
+	line-height: 1.9;
+	text-align: center;
+	vertical-align: center;
+	background: #e00;
+	color: #fff;
+	position: absolute;
+	font-size: 120%;
+	top: 0;
+	right: 0;
+}
+
+
+@media (max-width: 1024px) {
+dialog {
+	width: calc(60vw);
+}
+}
+
+@media (max-width: 800px) {
+dialog {
+	width: calc(90vw);
+}
+}
+
+@media (max-width: 640px) {
+dialog {
+	width: calc(95vw);
+}
 }
