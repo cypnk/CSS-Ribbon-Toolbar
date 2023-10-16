@@ -18,7 +18,7 @@
 				<div class="segment">
 					<div class="tools">
 					<ul class="toolbar">
-						<li class="full"><a href="#" rel="paste" title="Paste">&#x1F4CB;</a></li>
+						<li class="full"><a href="#" rel="paste" title="Paste">&#x1F4CB;<span>Paste</span></a></li>
 					</ul>
 					<ul class="toolbar">
 						<li><a href="#" rel="cut" title="Cut">&#9986;</a></li>
@@ -39,28 +39,47 @@
 						<li><input type="number" title="Font size" rel="fontsize" 
 							min="1" max="16" size="6" value="11" step="0.25"></li>
 						<li><a href="#" rel="fontup" title="Increase font size">A<sup>▴</sup></a></li>
-						<li><a href="#" rel="fontdown" title="Decrease font size">A<sup>▾</sup></a></li>
-						<li><a href="#" rel="eraseformat" title="Erase formatting">A↵</a></li>
+						<li><a href="#" rel="fontdown" title="Decrease font size">&#x1D00;<sup>▾</sup></a></li>
+						<li><a href="#" rel="eraseformat" title="Erase formatting">A&#8629;</a></li>
 					</ul>
 					<ul class="toolbar">
 						<li><a href="#" rel="bold" title="Bold">B</a></li>
 						<li><a href="#" rel="italic" title="Italic">I</a></li>
 						<li><a href="#" rel="underline" title="Underline">U</a></li>
 						<li><a href="#" rel="strikethrough" title="Strike through">ab</a></li>
-						<li><a href="#" rel="superscript" title="Superscript">X<sup>2</sup></a></li>
-						<li><a href="#" rel="subscript" title="Subscript">X<sub>2</sub></a></li>
-						<li><input type="color" value="#000000" rel="color" title="Foreground color"></li>
+						<li><a href="#" rel="superscript" title="Superscript">X<span>²</span></a></li>
+						<li><a href="#" rel="subscript" title="Subscript">X<span>₂</span></a></li>
+						<li><input type="color" list="colors" value="#000000" rel="color" title="Foreground color"></li>
 					</ul>
+					<datalist id="colors">
+						<option>#000000</option>
+						<option>#FFFFFF</option>
+						<option>#C0C0C0</option>
+						<option>#808080</option>
+						<option>#FF0000</option>
+						<option>#800000</option>
+						<option>#FFFF00</option>
+						<option>#808000</option>
+						<option>#00FF00</option>
+						<option>#008000</option>
+						<option>#00FFFF</option>
+						<option>#008080</option>
+						<option>#0000FF</option>
+						<option>#000080</option>
+						<option>#FF00FF</option>
+						<option>#800080</option>
+					</datalist>
 					</div>
 					<header>Font <a href=""></a></header>
 				</div>
 				<div class="segment">
 					<div class="tools">
 					<ul class="toolbar">
-						<li><a href="#" rel="undo" title="Undo">&#x21BA;</a></li>
-						<li><a href="#" rel="redo" title="Redo">&#x21BB;</a></li>
+						<li><a href="#" rel="undo" title="Undo">&#x21B6;</a></li>
+						<li><a href="#" rel="redo" title="Redo">&#x21B7;</a></li>
 						<li><a href="#" rel="indent" title="Increase indent">&#10609;</a></li>
 						<li><a href="#" rel="outdent" title="Decrease indent">&#x2B40;</a></li>
+						<li><a href="#" rel="list" title="List">&#8788;</a></li>
 					</ul>
 					<ul class="toolbar">
 						<li><label for="viewhtml" rel="showcode" title="Show HTML">&lt;&gt;</label></li>
