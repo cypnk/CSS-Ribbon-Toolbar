@@ -383,15 +383,12 @@ main {
 	border: 0;
 	resize: none;
 	line-height: inherit;
+	overflow: auto;
 }
 
 ::placeholder {
 	opacity: 1;
 	color: #777;
-}
-
-main [contenteditable] {
-	overflow: scroll;
 }
 
 main [contenteditable]:empty::before,
