@@ -25,6 +25,28 @@ p {
 	margin-top: 1rem;
 }
 
+a {
+	color: #0066cc;
+	text-decoration: underline;
+}
+
+a:hover {
+	color: #0078d7;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #551a8b;
+}
+
+a:active {
+	color: #ee0000;
+}
+
+mark {
+	color: #ffff00
+}
+
 
 /**
  *  Menu ribbon basics
