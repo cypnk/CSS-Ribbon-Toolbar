@@ -9,4 +9,5 @@ Ribbon opened state:
 Ribbon closed state:
 ![ribbon opened state](https://raw.githubusercontent.com/cypnk/CSS-Ribbon-Toolbar/main/ribbonclosed.png)
 
-
+Some entered text in the ribbon closed state:
+![ribbon opened state](https://raw.githubusercontent.com/cypnk/CSS-Ribbon-Toolbar/main/ribbontext.png)
