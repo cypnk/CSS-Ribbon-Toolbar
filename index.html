@@ -26,7 +26,7 @@
 						<li><a href="#" rel="pasteplain" title="Paste as plaintext">&#x1F4C4;</a></li>
 					</ul>
 					</div>
-					<header>Clipboard <a href=""></a></header>
+					<header>Clipboard <label for="clipboardmodal" title="Clipboard dialog"></label></header>
 				</div>
 				<div class="segment">
 					<div class="tools">
@@ -70,7 +70,7 @@
 						<option>#800080</option>
 					</datalist>
 					</div>
-					<header>Font <a href=""></a></header>
+					<header>Font <label for="fontmodal" title="Font dialog"></label></header>
 				</div>
 				<div class="segment">
 					<div class="tools">
@@ -85,7 +85,7 @@
 						<li><label for="viewhtml" rel="showcode" title="Show HTML">&lt;&gt;</label></li>
 					</ul>
 					</div>
-					<header>Paragraph <a href=""></a></header>
+					<header>Paragraph <label for="paragraphmodal" title="Paragraph dialog"></label></header>
 				</div>
 				<div class="segment">
 					<div class="tools">
@@ -94,7 +94,7 @@
 						<li><a href="#" rel="picture" title="Add picture">&#x1F4F7;</a></li>
 					</ul>
 					</div>
-					<header>Media <a href=""></a></header>
+					<header>Media <label for="mediamodal"></label></header>
 				</div>
 			</div>
 		</li>
@@ -105,7 +105,7 @@
 				<div class="segment">
 					<div class="tools">
 						<textarea id="summary" name="summary" 
-							placeholder="Summary" rows="2" cols="30"></textarea>
+							placeholder="Summary" rows="3" cols="30"></textarea>
 						<select id="category" name="category" title="Category">
 							<option>General</option>
 							<option>News</option>
@@ -180,5 +180,53 @@
 			id="editor_txt" rows="30" cols="60" required></textarea>
 	</form>
 </main>
+
+<div rel="modals">
+
+<div>
+	<input type="checkbox" rel="toggle" id="clipboardmodal">
+	<dialog>
+		<label rel="close" for="clipboardmodal">X</label>
+		<header>Clipboard options</header>
+		<section>
+			<p>Other options here</p>
+		</section>
+	</dialog>
+</div>
+
+<div>
+	<input type="checkbox" rel="toggle" id="fontmodal">
+	<dialog>
+		<label rel="close" for="fontmodal">X</label>
+		<header>Font options</header>
+		<section>
+			<p>Other options here</p>
+		</section>
+	</dialog>
+</div>
+
+<div>
+	<input type="checkbox" rel="toggle" id="paragraphmodal">
+	<dialog>
+		<label rel="close" for="paragraphmodal">X</label>
+		<header>Paragraph options</header>
+		<section>
+			<p>Other options here</p>
+		</section>
+	</dialog>
+</div>
+
+<div>
+	<input type="checkbox" rel="toggle" id="mediamodal">
+	<dialog>
+		<label rel="close" for="mediamodal">X</label>
+		<header>Media options</header>
+		<section>
+			<p>Other options here</p>
+		</section>
+	</dialog>
+</div>
+
+</div>
 </body>
 </html>
