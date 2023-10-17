@@ -181,49 +181,53 @@
 	</form>
 </main>
 
+<!-- Modal dialogs referenced in the ribbon segment headers -->
 <div rel="modals">
 
 <div>
 	<input type="checkbox" rel="toggle" id="clipboardmodal">
-	<dialog>
+	<dialog draggable="true">
 		<label rel="close" for="clipboardmodal">X</label>
-		<header>Clipboard options</header>
-		<section>
-			<p>Other options here</p>
-		</section>
+		<details open>
+			<summary>Clipboard options</summary>
+			<div><p>Other options here</p></div>
+		</details>
 	</dialog>
 </div>
 
 <div>
 	<input type="checkbox" rel="toggle" id="fontmodal">
-	<dialog>
+	<dialog draggable="true">
 		<label rel="close" for="fontmodal">X</label>
-		<header>Font options</header>
-		<section>
-			<p>Other options here</p>
-		</section>
+		<details open>
+			<summary>Font options</summary>
+			<div><p>Other options here</p></div>
+		</details>
 	</dialog>
 </div>
 
 <div>
 	<input type="checkbox" rel="toggle" id="paragraphmodal">
-	<dialog>
+	<dialog draggable="true">
 		<label rel="close" for="paragraphmodal">X</label>
-		<header>Paragraph options</header>
-		<section>
-			<p>Other options here</p>
-		</section>
+		<details open>
+			<summary>Paragraph options</summary>
+			<div><p>Other options here</p></div>
+		</details>
 	</dialog>
 </div>
 
 <div>
 	<input type="checkbox" rel="toggle" id="mediamodal">
-	<dialog>
+	<dialog draggable="true">
 		<label rel="close" for="mediamodal">X</label>
-		<header>Media options</header>
-		<section>
-			<p>Other options here</p>
-		</section>
+		<details open>
+			<summary>Media options</summary>
+			<div>
+				<p>Other options here</p>
+				<textarea id="media" name="media">Demo resizable textarea</textarea>
+			</div>
+		</details>
 	</dialog>
 </div>
 
