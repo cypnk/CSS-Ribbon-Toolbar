@@ -365,7 +365,7 @@ dialog summary + div,
 	width: 1.6rem;
 }
 
-.toolbar a:is([rel="undo"],[rel="redo"],[rel="indent"],[rel="outdent"],[rel="list"]) {
+.toolbar a:is([rel="indent"],[rel="outdent"],[rel="list"]) {
 	font-size: 150%;
 	line-height: 0.5;
 }
