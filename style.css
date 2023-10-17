@@ -325,7 +325,7 @@ dialog summary + div,
 	margin-top: 0.3rem;
 }
 
-.ribbon .toolbar a:hover {
+.ribbon .toolbar a:hover, .ribbon .toolbar label[for]:hover {
 	border: 1px solid #90caf9;
 }
 
