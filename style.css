@@ -2,7 +2,7 @@
  *  Simple CSS ribbon toolbar sketch
  */
 
-*, *:after, *:before {
+*, *::after, *::before {
 	box-sizing: border-box;
 }
 
@@ -47,8 +47,38 @@ mark {
 	color: #ffff00
 }
 
-label[for] {
+label[for], summary, select {
 	cursor: pointer;
+}
+
+summary {
+	display: block;
+	width: 100%;
+}
+
+summary::before {
+	content: '\25BE';
+	padding-right: 0.5rem;
+	line-height: 1;
+}
+
+details[open] summary::before {
+	content: '\25B4';
+}
+
+/**
+ * Input reset
+ */
+input, textarea, select {
+	font: inherit;
+	border: 1px solid #ddd;
+	background: #fff;
+	padding: 0.1rem 0.2rem;
+}
+
+input:focus, textarea:focus, select:focus {
+	outline: none;
+	border-color: #90caf9;
 }
 
 
@@ -75,9 +105,6 @@ label[for] {
 	margin-bottom: 9.5rem;
 }
 
-.ribbon[open] summary::before {
-	content: '\25B4';
-}
 
 .ribbon [rel="toggle"] {
 	display: none;
@@ -100,6 +127,10 @@ label[for] {
 	padding-right: 0.3rem;
 	height: 5.5rem;
 	overflow: hidden;
+}
+
+dialog summary + div,
+.ribbon .segment .tools {	
 	scrollbar-arrow-color: #396fc4;
 	scrollbar-gutter: stable;
 	scrollbar-color: #396fc4 #f3f3f3;
@@ -111,12 +142,17 @@ label[for] {
 	overflow-y: scroll;
 }
 
+[rel="modals"] dialog summary + div::-webkit-scrollbar,
 .ribbon .segment .tools::-webkit-scrollbar {
 	background: #f3f3f3;
 }
+
+[rel="modals"] dialog summary + div::-webkit-scrollbar-track,
 .ribbon .segment .tools::-webkit-scrollbar-track {
 	background: #f3f3f3;
 }
+
+[rel="modals"] dialog summary + div::-webkit-scrollbar-button,
 .ribbon .segment .tools::-webkit-scrollbar-button {
 	background: #ddd;
 }
@@ -175,11 +211,6 @@ label[for] {
 	padding: 0.3rem;
 }
 
-.ribbon summary::before {
-	content: '\25BE';
-	padding-right: 0.5rem;
-}
-
 .ribbon .tab:hover {
 	background: #2b569a;
 }
@@ -216,9 +247,6 @@ label[for] {
 
 .segment input, .segment textarea, .segment select {
 	line-height: 1.3;
-	border: 1px solid #ddd;
-	background: #fff;
-	padding: 0.1rem 0.2rem;
 }
 
 .segment textarea {
@@ -228,17 +256,8 @@ label[for] {
 	margin-bottom: 0.2rem;
 }
 
-.segment input:focus, .segment textarea:focus, .segment select:focus {
-	outline: none;
-	border-color: #90caf9;
-}
-
 .segment input:is([type="text"],[type="number"]), .segment select {
 	height: 1.6rem;
-}
-
-.segment select {
-	cursor: pointer;
 }
 
 .segment label {
@@ -441,7 +460,7 @@ main [contenteditable] html:empty::before {
  *  Dialog boxes
  */
 
-dialog {
+[rel="modals"] dialog {
 	border: 1px solid #396fc4;
 	background: #f3f3f3;
 	padding: 0;
@@ -449,16 +468,25 @@ dialog {
 	width: calc(50vw);
 }
 
-dialog header, dialog section {
+[rel="modals"] dialog summary, dialog summary + div {
 	padding: 0.5rem;
 	margin: 0;
 }
 
-dialog header {
+[rel="modals"] dialog summary {
 	background: #396fc4;
+	border: 0;
 	color: #fff;
+	height: 2rem;
 }
 
+
+[rel="modals"] dialog summary + div {
+	height: calc(100% - 2rem);
+	min-height: 100px;
+	overflow: auto;
+	overflow-y: scroll;
+}
 
 [rel="modals"] {
 	height: 0;
@@ -479,7 +507,7 @@ dialog header {
 
 dialog label[rel="close"] {
 	width: 1.9rem;
-	height: 2rem;
+	height: 1.95rem;
 	line-height: 1.9;
 	text-align: center;
 	vertical-align: center;
